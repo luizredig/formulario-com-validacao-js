@@ -1,0 +1,179 @@
+<!-- Desenvolvido por <Luiz Redig> -->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Evolvy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Container central da página -->
+    <!-- (ele será dividivo em 3 fases: inicial, principal e final) -->
+
+    <div id="container" class="container inicial" oninput="habilitarBotao()">
+
+        <!-- FASE 1 : INICIAL (BOAS VINDAS)-->
+
+        <div id="tela-inicial" class="tela-inicial">
+
+            <h1 class="titulo-principal">Bem-vindo!</h1>
+
+            <h3 class="titulo-secundario">Vamos fazer o seu cadastro:</h3>
+
+            <!-- BOTÃO 'COMEÇAR' -->
+
+            <button id="button-comecar" onclick="iniciarFormulario()">
+
+                <!-- Conteúdo do botão -->
+
+                <span id="button-comecar-span">começar</span>
+
+                <!-- Ícone de seta '->' -->
+
+                <span id="button-comecar-icon">
+
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+
+                </span>
+
+            </button>
+        </div>
+
+        <!-- FASE 2 : PRINCIPAL (FORMULARIO)-->
+
+        <!-- Crindo um formulário em uma tag <div> -->
+
+        <div id="form">
+
+            <!-- Label 'Nome Completo' -->
+
+            <label for="input-nome">Nome Completo :</label>
+
+            <!-- Input 'text', max 100 caracteres, regex e required -->
+
+            <input id="input-nome" type="text" maxlength="100" pattern="^[a-zA-Zá-úÁ-Ú ]+$" oninput="validarNome()"
+                required>
+
+            <!-- Mensagem de erro -->
+
+            <span id="input-nome-span">Mínimo 5 caracteres e apenas letras e acentuações.</span>
+
+
+            <!-- Label 'Telefone' -->
+
+            <label for="input-telefone">Telefone :</label>
+
+            <!-- Input 'tel', max 9 caracteres (xxxx-xxxx), regex e required -->
+
+            <input id="input-telefone" type="tel" maxlength="9" pattern="^[0-9]{4}-[0-9]{4}$"
+                oninput="validarTelefone()" required>
+
+            <!-- Mensagem de erro -->
+
+            <span id="input-telefone-span">Telefone completo e somente números.</span>
+
+
+            <!-- Label 'Celular' -->
+
+            <label for="input-celular">Celular :</label>
+
+            <!-- Input 'tel', max 14 caracteres ((xx) xxxx-xxxx), regex e required-->
+
+            <input id="input-celular" type="tel" maxlength="14" pattern="^[(][0-9]{2}[)][ ][0-9]{4}-[0-9]{4}$"
+                oninput="validarCelular()" required>
+
+            <!-- Mensagem de erro -->
+
+            <span id="input-celular-span">Celular completo e somente números.</span>
+
+
+            <!-- Label 'Email' -->
+
+            <label for="input-email">Email :</label>
+
+            <!-- Input 'email', regex e required-->
+
+            <input id="input-email" type="email" pattern="[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+(\.[a-zA-Z]+)?$"
+                oninput="validarEmail()" required>
+
+            <!-- Mensagem de erro -->
+
+            <span id="input-email-span">Informe um email válido.</span>
+
+
+            <!-- Label 'Numero' -->
+
+            <label for="input-numero">Escolha um número de 1 a 999 :</label>
+
+            <!-- Input 'number', min = 1, max = 999, max 3 caracteres e required -->
+
+            <input id="input-numero" type="number" min="1" max="999" maxlength="3" oninput="validarNumero()" required>
+
+            <!-- Mensagem de erro -->
+
+            <span id="input-numero-span"><strong>Ótima escolha!</strong></span>
+
+            <!-- Botão ENVIAR inicialmente disabled -->
+
+            <button id="button-enviar" class="disabled" onclick="exibirPainelResposta()" disabled>ENVIAR</button>
+
+        </div>
+    </div>
+
+    <!-- FASE 3: FINAL (RESPOSTAS) -->
+
+    <div id="painel-resposta" class="ligado">
+
+        <!-- BOTÃO 'VOLTAR' -->
+
+        <button id="button-voltar" onclick="ocultarPainelResposta()">
+
+            <!-- Ícone de seta '<-' -->
+
+            <span id="button-voltar-icon">
+
+                <ion-icon name="arrow-back-outline"></ion-icon>
+
+            </span>
+
+            <!-- Conteúdo do botão -->
+
+            <span id="button-voltar-span">voltar</span>
+
+        </button>
+
+        <!-- Título 'Resultado' -->
+
+        <h1>Resultado</h1>
+
+        <!-- O número escolhido pelo usuário -->
+
+        <div id="numero">O seu número é : <span id="numero-span"></span></div>
+
+        <!-- RESPOSTAS -->
+
+        <div id="resposta"></div>
+    </div>
+
+    <!-- Fundo desfocado ao exibir resultado -->
+
+    <div class="fundo-desfocado"></div>
+
+    <!-- Script para validação, máscaras e efeitos  -->
+
+    <script src="js/script.js"></script>
+
+    <!-- Importando símbolos de 'https://ionic.io/' -->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

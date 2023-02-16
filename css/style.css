@@ -1,0 +1,453 @@
+/* Importando fonte 'Poppins' do Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;0,800;1,300;1,400;1,600&display=swap');
+
+/* 'Reset' CSS*/
+
+* 
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Reset Input */
+
+input:focus 
+{
+    border: none;
+    outline: none;
+}
+
+/* Definindo as cores em variáveis */
+
+:root 
+{
+    --cor-preto: #242424;
+    --cor-cinza-escuro: #8d8d8d;
+    --cor-branco: #eee;
+    --cor-btn-azul: #0698e1;
+    --cor-btn-ciano: #1fb4ff;
+    --cor-verde: #07b641;
+    --cor-cinza: #b7b7b7;
+}
+
+body 
+{
+    /* Dimensões */
+
+    height: 100vh;
+    width: 100vw;
+    min-width: 320px;
+
+    /* Centralizando */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Cor */
+
+    background-color: var(--cor-preto);
+}
+
+.container 
+{
+    /* Dimensões */
+
+    min-width: fit-content;
+    width: 600px;
+    min-height: 650px;
+    
+    /* Espaçamento */
+    
+    margin: 100px;
+
+    /* Centralizando */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Cor */
+
+    background-color: var(--cor-branco);
+
+    /* Bordas */
+
+    border-radius: 20px;
+}
+
+/* CASO: Container principal com class ".inicial" mostra a tela de boas vindas */
+
+.container.inicial .tela-inicial 
+{
+    display: block;
+}
+
+/* Tela de boas vindas (FASE 1) */
+
+.tela-inicial 
+{
+    /* Habilitado quando .container tiver class ".inicial"*/
+
+    display: none;
+
+    /* Dimensões */
+
+    width: 100%;
+
+    /* Centralizando conteúdo */
+
+    justify-content: center;
+    align-items: center;
+
+    /* Animação */
+
+    transform: translateY(-100px);
+}
+
+/* Título 'Bem-vindo!'*/
+
+.titulo-principal
+{
+    /* Centralizando conteúdo */
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    /* Espaçamento */
+
+    margin: 0 50px;
+    
+    /* Formatação */
+
+    font-size: 5em;
+}
+
+/* Título 'Vamos fazer o seu cadastro' */
+
+.titulo-secundario 
+{
+    /* Centralizando conteúdo */
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* Espaçamento */
+
+    margin: 0 50px;
+    margin-top: 20px;
+
+    /* Formatação */
+
+    font-size: 25px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* BOTÃO 'COMEÇAR' */
+
+#button-comecar
+{
+    /* Cursor */
+
+    cursor: pointer;
+
+    /* Posição */
+
+    position: absolute;
+    right: 50px;
+    bottom: -240px;
+
+    /* Cor */
+
+    background-color: var(--cor-btn-azul);
+
+    /* Bordas */
+    
+    border: none;
+    border-radius: 15px;
+
+    /* Espaçamento */
+
+    padding: 15px 20px;
+    
+    /* Formatação */
+
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    /* Animação */
+
+    transition: .4s;
+}
+
+/* Hover do botão 'COMEÇAR' */
+
+#button-comecar:hover
+{
+    /* Animação */
+    
+    transform: scale(1.05);
+
+    /* Cor */
+
+    background-color: var(--cor-btn-ciano);
+}
+
+/* Formulário (FASE 2) */
+
+#form 
+{
+    /* Inicialmente 'invisível' */
+
+    display: none;
+
+    /* Quando visível ... */
+
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 50px;
+
+}
+
+/* Para cada label do #form */
+
+#form label 
+{
+    font-size: 20px;
+    font-style: italic;
+}
+
+/* Para cada label do #form */
+
+#form input 
+{
+    /* Espaçamento */
+
+    margin: 10px 0;
+    padding: 5px 5px;
+
+    /* Cor */
+
+    background-color: var(--cor-branco);
+
+    /* Bordas */
+
+    border-radius: 10px;
+    border: 2px solid black;
+
+    /* Fonte */
+
+    font-weight: 600;
+
+    /* Transiçao para animações */
+
+    transition: .4s;
+}
+
+/* Para cada span do #form */
+
+#form span 
+{
+    display: none;
+    font-size: 13px;
+}
+
+/* BOTÃO 'ENVIAR */
+
+#button-enviar
+{
+    /* Inicialmente 'invisível' */
+
+    display: none;
+    
+    /* Espaçamento */
+    
+    padding: 15px;
+    
+    /* Cor */
+
+    background-color: var(--cor-btn-azul);
+    
+    /* Bordas */
+
+    border: none;
+    border-radius: 15px;
+    
+    /* Formatação */
+    
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+
+    /* Transiçao para animações */
+
+    transition: .4s;
+}
+
+/* CASO: Container principal com class ".principal" altera o display do botão antes invisível */
+
+.container.principal #button-enviar
+{
+    display: block;
+}
+
+/* Botão Enviar enquanto disabled */
+
+#button-enviar:disabled
+{
+    /* Cursor */
+
+    cursor: not-allowed;
+
+    /* Cor */
+
+    background-color: var(--cor-cinza);
+}
+
+/* Botão Enviar quando habilitado */
+
+#button-enviar.not-disabled:hover 
+{
+    /* Cursor */
+
+    cursor: pointer;
+
+    /* Cor */
+
+    background-color: var(--cor-btn-ciano);
+
+    /* Animação */
+
+    transform: scale(1.05);
+
+}
+
+/* Tela resposta (FASE 3) */
+
+#painel-resposta
+{
+    /* Inicialmente 'invisível' */
+
+    display: none;
+    
+    /* Dimensões */
+
+    min-width: fit-content;
+    min-height: fit-content;
+    
+    /* Cor */
+    
+    background-color: var(--cor-branco);
+    
+    /* Espaçamento */
+    
+    z-index: 1;
+    position: absolute;
+    padding: 100px;
+    
+    /* Bordas */
+
+    border-radius: 20px;
+}
+
+/* BOTÃO 'VOLTAR' */
+
+#button-voltar
+{
+    /* Cursor */
+
+    cursor: pointer;
+    
+    /* Centralizando */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Espaçamento */
+
+    padding: 10px 20px;
+    
+    /* Cor */
+
+    background-color: var(--cor-cinza);
+
+    /* Bordas */
+
+    border: none;
+    border-radius: 15px;
+
+    /* Formatação */
+
+    font-weight: 600;
+    color: var(--cor-preto);
+
+    /* Animação */
+
+    transition: .4s;
+}
+
+/* Hover do botão 'voltar' */
+
+#button-voltar:hover
+{
+    /* Animação */
+
+    transform: scale(1.05);
+    
+    /* Cores */
+
+    background-color: var(--cor-cinza-escuro);
+    color: var(--cor-branco);
+}
+
+/* Conteúdo do botão */
+
+#button-voltar span {
+
+    /* Centralizando */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fundo desfocado para quando for exibido as respostas */
+
+.fundo-desfocado
+{
+    /* Inicialmente 'invisível' */
+
+    display: none;
+    
+    /* Dimensões */
+
+    min-height: 100vh;
+    min-width: 100vw;
+    position: absolute;
+
+    /* Cor */
+    
+    background-color: #24242497;
+
+    /* Blur */
+
+    backdrop-filter: blur(5px);
+}
+
+/* CASO: quanto o funto estiver com a class '.ligado'...*/
+
+.fundo-desfocado.ligado
+{
+    display: block;
+}
+
